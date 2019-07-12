@@ -125,7 +125,7 @@ def merge(tree_list: t.List[Tree]) -> Tree:
     return bt_merged
 
 
-def traverse_tree(bt: Tree, elem: str, encode: str, output: t.List) -> str:
+def traverse_tree(bt: Tree, elem: str, encode: str, output: t.List):
     if bt == None:
         return
     if bt.root == None:
@@ -157,7 +157,6 @@ def traverse_decode(copy_inmutable: Tree, data_list: t.List, output: t.List, par
             traverse_decode(parent, data_list, output, parent)
         return
     if (len(data_list) > 0):
-
         elem = data_list.pop(0)
         if elem == '0':
             traverse_decode(copy_inmutable.root.left, data_list, output, parent)
@@ -170,7 +169,7 @@ def huffman_decoding(encode: str, tree: Tree):
     output = []
     bin_encode = list(encode)
     if bin_encode == [] and tree != None and tree.root != None:
-        return tree.root.value.character * tree.root.value.frequency
+        return '0' * tree.root.value.frequency
     if bin_encode != []:
         traverse_decode(tree, bin_encode, output, tree)
         return ''.join(output)
