@@ -91,9 +91,9 @@ def linear_search(input_list, number):
 
 #***** Test Cases *****#
 
-assert (find_pivot([1, 5, 6, 8, 9, 0], 0, 5) == 5)  # max number of array expected 5 between interval 0-5
-assert (find_pivot([2, 5, 6, 0, 1], 0, 4) == 3)
-assert (find_pivot([1, 5, 6, 8, 9, 11], 0, 5) == 0)
+assert (find_pivot([1, 5, 6, 8, 9, 0], 0, 5) == 5)  # min number from array position 5
+assert (find_pivot([2, 5, 6, 0, 1], 0, 4) == 3) # min number from array position 3
+assert (find_pivot([1, 5, 6, 8, 9, 11], 0, 5) == 0) # min number from array position 0
 
 
 def test_function(test_case):
