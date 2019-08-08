@@ -70,11 +70,20 @@ assert (sqrt(4) == math.floor(math.sqrt(4))) #especting 2 floor of sqrt(4)
 
 print ("Pass" if  (math.floor(math.sqrt(88)) == sqrt(88)) else "Fail")
 print ("Pass" if  (3 == sqrt(9)) else "Fail")
+
 print ("Pass" if  (0 == sqrt(0)) else "Fail")
 print ("Pass" if  (4 == sqrt(16)) else "Fail")
 print ("Pass" if  (1 == sqrt(1)) else "Fail")
 print ("Pass" if  (5 == sqrt(27)) else "Fail")
-
+print ("Pass" if  ( math.floor(math.sqrt(213))== sqrt(213)) else "Fail")
+print ("Pass" if  (math.floor(math.sqrt(5432)) == sqrt(5432)) else "Fail")
+print ("Pass" if  (math.floor(math.sqrt(2048)) == sqrt(2048)) else "Fail")
+print ("Pass" if  (math.floor(math.sqrt(2047)) == sqrt(2047)) else "Fail")
+print ("Pass" if  (math.floor(math.sqrt(82041)) == sqrt(82041)) else "Fail")
+print ("Pass" if  (math.floor(math.sqrt(204732)) == sqrt(204732)) else "Fail")
+print ("Pass" if  (math.floor(math.sqrt(56204730)) == sqrt(56204730)) else "Fail")
+print ("Pass" if  (math.floor(math.sqrt(10000000)) == sqrt(10000000)) else "Fail")
+print ("Pass" if  (-1 == sqrt(-64)) else "Fail")
 
 
 

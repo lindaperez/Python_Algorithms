@@ -10,7 +10,7 @@
 # Example:
 # Input: arr = [4,5,6,7,0,1,2], target = 0, Output: 4
 # Here is some boilerplate code and test cases to start with:
-
+import random
 def rotated_array_search(input_list, number) -> int:
     """
         Find the index by searching in a rotated sorted array
@@ -99,15 +99,24 @@ assert (find_pivot([1, 5, 6, 8, 9, 11], 0, 5) == 0) # min number from array posi
 def test_function(test_case):
     input_list = test_case[0]
     number = test_case[1]
+
     if linear_search(input_list, number) == rotated_array_search(input_list, number):
+
         print("Pass")
     else:
         print("Fail")
 
-
+test_function([[], 4])
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
 test_function([[4, 5, 6, 7, 0, 1, 2], 4])
+test_function([[6, 7, 8, 9, 10, 12, 22, 43, 54,67,91,-34,3,2], -34])
+test_function([[6, 7, 8, 9, 10, 12, 22, 43, 54,67,91,-1,1,3], -88])
+l = [i for i in range(-900, 100000)]  # a list containing 0 - 9
+test_function([l, -956])
+m= [i for i in range(-9090, 10000099)]  # a list containing 0 - 9
+test_function([m, 10000098])
+
