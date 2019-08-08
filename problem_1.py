@@ -18,15 +18,20 @@ def sqrt(number: int)-> int:
     Returns:
        int: Floored Square Root
     """
-    if 0<=number<=4:
-        for i in range(number,0,-1):
-            if i * i <= number:
-                return i
-        return 0
-    else:
-        arr = list(range(0, number // 2))
-        return binary_search(arr, number)
-
+    try:
+        if number<0:
+            raise ValueError
+        if 0<=number<=4:
+            for i in range(number,0,-1):
+                if i * i <= number:
+                    return i
+            return 0
+        else:
+            arr = list(range(0, number // 2))
+            return binary_search(arr, number)
+    except ValueError:
+        print("ValueError:Negative number does not have a square root")
+        return -1
 
 def binary_search(arr, target) -> int:
     """
@@ -38,11 +43,14 @@ def binary_search(arr, target) -> int:
         Returns:
            int: Index position of array
         """
+
     if len(arr) == 0: return -1
     left = 0
     right = len(arr) - 1
     middle = (left + right) // 2
     while 0 <= left <= right < len(arr):
+        if arr[middle]<0:
+            raise ValueError
         if (arr[middle] * arr[middle]) == target:
             return middle
         elif (arr[middle] * arr[middle]) < target:
@@ -84,6 +92,7 @@ print ("Pass" if  (math.floor(math.sqrt(204732)) == sqrt(204732)) else "Fail")
 print ("Pass" if  (math.floor(math.sqrt(56204730)) == sqrt(56204730)) else "Fail")
 print ("Pass" if  (math.floor(math.sqrt(10000000)) == sqrt(10000000)) else "Fail")
 print ("Pass" if  (-1 == sqrt(-64)) else "Fail")
+
 
 
 
