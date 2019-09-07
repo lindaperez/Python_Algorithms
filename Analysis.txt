@@ -1,0 +1,243 @@
+
+
+
+ABOUT:
+This is a document to analyze the Complexity in Time and Memory of some implemented Tasks
+*****************************************************************************************************
+
+
+""" TASK 0: What is the first record of texts and what is the last record of calls? """
+	
+
+	Given
+	n is the number of text rows
+	m is the number of calls rows
+
+	Time Complexity ------------------------------------------------
+	
+	- Load the lists
+		
+		texts = list(reader)  :::: O(n)
+		calls = list(reader)   :::: O(m)
+	
+	- Access to an Element of a list 
+		
+		rownText = texts[0]   :::: O(1)
+		rownCalls = calls[-1] :::: O(1)
+	
+	Total Time Complexity ------> ::: O(n+m+ 2) === O(n+m)  ----------------
+	
+
+	Memory Complexity ------------------------------------------------
+
+	- Create the list of lists
+		
+		texts = list(reader)     :::: O(3 * size of String * n)
+    		calls = list(reader)      :::: O(4 * size of String * m)
+		
+
+	- Create a variable 
+		rownText = texts[0]  :::: O(1)
+	
+	
+	If the size of the String is constant C them, 
+
+	Total Memory Complexity ---> ::: O(3*C *n + 4*C * m)  === O(m+n) ---------
+
+
+
+
+""" TASK 1: How many different telephone numbers are there in the records? """
+	
+	
+	Given
+	n is the number of text rows
+	m is the number of calls rows
+
+	Time Complexity ------------------------------------------------
+	- Load the list of texts 
+		texts = list(reader)  :::: O(n)
+		calls = list(reader)   :::: O(m)
+
+	- Iterate through the list of texts:
+  		 for rowText in texts:	:::: O(n)
+		 for elem in rowText[:2]	:::: O(2)	
+		 for rowCall in calls:		:::: O(m)
+ 		 for elem in rowCall[:2]:	:::: O(2)
+
+	- Find the element inside dictionary 
+		  if elem not in ph_nums:	:::: O(1)
+
+	- Access to an Element of the dictionary  and add 1
+		ph_nums[elem]+=1		:::: O(2)	
+	
+	- Find Length of the dictionary 	:::: O(1)
+		len(ph_nums)
+	
+	Total Time Complexity ----------->	::: O(n+m+2n+2m +4) === O(n+m) -----------
+
+
+	Memory Complexity ------------------------------------------------
+
+	- Create the list 
+		texts = list(reader)     :::: O(3 * size of String * n)
+    		calls = list(reader)      :::: O(4 * size of String * m)
+	- Create a dictionary 
+		ph_nums = {}	 	 :::: O(size of dictionary*(n+m))
+	- Find the element inside dictionary 
+		 if  elem not in ph_nums:	::: O(1)
+	
+	If the size of the String and size of dictionary is constant C them, 
+	
+	Total Memory Complexity  -----------> ::: O(3*C*n + 4*C*m+n+m) === O(n+m) -----------
+
+"""
+TASK 2: Which telephone number spent the longest time on the phone
+during the period? Don't forget that time spent answering a call is
+also time spent on the phone.
+"""
+
+	Given
+	n is the number of text rows
+	m is the number of calls rows
+
+	Time Complexity ------------------------------------------------
+	- Load the list of texts 
+		texts = list(reader)  :::: O(n)
+		calls = list(reader)   :::: O(m)
+
+	- Iterate through the list of calls:	
+		 for rowCall in calls:		:::: O(m)
+
+	- Find the element inside dictionary 
+		  if phone_number_0 not in timeCall:	:::: O(1)
+		 if phone_number_1 not in timeCall:	:::: O(1)
+
+	- Access to an Element of the dictionary  and add 1
+		 timeCall[phone_number_1] += time	:::: O(2)	
+		 timeCall[phone_number_0] += time	:::: O(2)	
+	
+	- Find the max value of the dictionary 		
+		 maxElem=max(timeCall.items(), key=operator.itemgetter(1))[0]    :::: O(m)
+	
+	Total Time Complexity ----------->	::: O(n+3m+6) === O(n+m) -----------
+
+
+	Memory Complexity ------------------------------------------------
+
+	- Create the list 
+		texts = list(reader)     :::: O(3 * size of String * n)
+    		calls = list(reader)     :::: O(4 * size of String * m)
+	- Create a dictionary 
+		ph_nums = {}	 	 :::: O(size of dictionary))
+	- Find the element inside dictionary 
+		 if  elem not in ph_nums:	::: O(1)
+	
+	If the size of the String C and size of dictionary D are constants them, 
+	
+	Total Memory Complexity  -----------> ::: O(3*C*n + 4*C*m+D) === O(n+m) -----------
+    
+ """
+TASK 3:
+(080) is the area code for fixed line telephones in Bangalore.
+Fixed line numbers include parentheses, so Bangalore numbers
+have the form (080)xxxxxxx.) 
+ """
+	Given
+	m is the number of calls rows
+
+	Time Complexity ------------------------------------------------
+	- Load the list of texts 
+		calls = list(reader)   :::: O(m)
+
+	- Iterate through the list of calls:	
+		  for rowCall in calls:	:::: O(m)
+
+	- Compare the element inside set  
+		  if eight not in hm:		:::: O(1)
+	
+	- Find an element inside set 
+   		 if code not in hm:		:::: O(1)
+	
+	- Access to an Element of the set  and add in a list
+		 hm[code].add(answered) 	
+
+	- Print solution from the set 		::: O(m)		
+	and sort the elements inside the list	::: mlog(m)
+	    for sol in hm:
+       	    	for sal in sorted(hm[sol]):
+
+	Total Time Complexity ----------->	::: O(3m + mlog(m)+ 2 ) === O(mlog(m)) 
+
+
+	Memory Complexity ------------------------------------------------
+	
+	- Create the list 
+
+    		calls = list(reader)     :::: O(4 * size of String * m) 
+	
+	- Create a set of lists and add elements
+		
+		 hm = {}		:::: O(size of set* size of the list * m ) 
+
+	- Compare the element inside set 
+
+		 if code not in hm:	::: O(1)
+	
+	If the size of the String C and size of dictionary D are constants then, 
+	
+	Total Memory Complexity  -----------> O(4Cm + Cm + 1 )=== O(m) -----------
+    
+
+"""
+TASK 4:
+The telephone company want to identify numbers that might be doing
+telephone marketing. Create a set of possible telemarketers:
+these are numbers that make outgoing calls but never send texts,
+receive texts or receive incoming calls.
+""""
+	
+	
+	Given
+	n is the number of text rows
+	m is the number of calls rows
+
+	Time Complexity ------------------------------------------------
+	- Load the list of texts 
+		texts = list(reader)   :::: O(n)
+		calls = list(reader)   :::: O(m)
+
+	- Iterate through the lists:
+  		
+		 for rowText in texts:		:::: O(n)	 
+		 for rowCall in calls:		:::: O(m)
+ 		
+	- Find the element inside set 
+		   if sendText not in noOthers:		:::: O(1)
+   		   if recText not in noOthers:		:::: O(1)
+     		   if incoming not in callers:		:::: O(1)
+		   if answered not in noOthers:		:::: O(1)
+
+	- Add an Element to the set 
+		  noOthers.add(answered)		:::: O(1)	
+	
+	- Print the results
+		 for call in callers: 			:::: O(m)
+	- Sort the Elements
+		sorted(callers):			:::: O(mlogm)
+	
+	Total Time Complexity ----------->	::: O(3m+n) ::: O(m+n + mlogm) === O(mlogm)
+
+	Memory Complexity ------------------------------------------------
+
+	- Create the list
+		texts = list(reader)      :::: O(3 * size of String * n)
+    		calls = list(reader)      :::: O(4 * size of String * m)
+	- Create sets and add elements
+		callers = set()	  	  :::: O(size of set*m ) === O(m)
+		noOthers = set()	  :::: O(size of set*(m+n)) === O(m+n)
+	
+	If the size of the String and size of dictionary is constant C them, 
+	
+	Total Memory Complexity  -----------> ::: O(3Cn + 4Cm) + O(2m+n)  ::: O(m+n)
+  
