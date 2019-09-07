@@ -1,9 +1,8 @@
-#NanoDegree Repository
+**NanoDegree Repository
 
+First of all
 
 Hi there!
-Just download and Run with Python 3.x
-
 
 This repository is only for some algorithms implemented for The Nanodegree Algorithms and Data Structures
 by Udacity
@@ -49,4 +48,16 @@ Especifically:
   Project: Route Planner
 
   A Star (Diijsktra and Greed Best first Search) Route Planner
+
+
+*****Just download and Run with Python 3.x
+
+**How you can contribute?
+ 
+Well, you can add some other interesting alhgorithms or data structure desitions like: 
+  - How to implement a Hashmap with with your own library keeping the efficiency of the definition of a HAshmap/ Dictionary
+  - Any root planner algorithm 
+  
+
+  
 
